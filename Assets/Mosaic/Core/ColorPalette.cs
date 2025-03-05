@@ -2,7 +2,9 @@ using UnityEngine;
 
 namespace Mosaic{
     public class ColorPalette : FieldGenerator{
-        [Space, SerializeField] Color[] colors;
+        [Space, SerializeField] private Color[] colors;
+
+        [HideInInspector] public string colorTag;
 
         public void SetLength(float value) => width = Mathf.RoundToInt(value + 1);
 
@@ -13,6 +15,8 @@ namespace Mosaic{
 
             foreach(var tile in tiles){
                 tile.SpriteRenderer.color = colors[count];
+
+                tile.gameObject.tag = tag;
 
                 count++;
             }

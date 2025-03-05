@@ -2,13 +2,13 @@ using UnityEngine;
 
 namespace Mosaic{
     public class PopUpElement : VisualElement{
-        CanvasGroup canvasGroup;
+        private CanvasGroup canvasGroup;
 
-        void Awake(){
+        private void Awake(){
             canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        const float scaleAnimationDelta = 1.25f;
+        private const float scaleAnimationDelta = 1.25f;
 
         protected override void SetVisible(bool value){
             base.SetVisible(value);

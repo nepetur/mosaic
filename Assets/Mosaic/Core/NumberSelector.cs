@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Mosaic{
     public class NumberSelector : MonoBehaviour{
-        [Space, SerializeField] TextMeshProUGUI text;
+        [Space, SerializeField] private TextMeshProUGUI text;
 
-        [Space, SerializeField, TextArea] string prompt;
+        [Space, SerializeField, TextArea] private string prompt;
 
-        void Start() => UpdateText(1);
+        private void Start() => UpdateText(1);
 
         public void UpdateText(float value){
             value = Mathf.RoundToInt(value);

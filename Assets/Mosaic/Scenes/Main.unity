@@ -768,6 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28aa0b8b5f0987c41a1680eb27c8bcaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorPalette: {fileID: 1357260168}
 --- !u!1 &1064797308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +1062,7 @@ GameObject:
   - component: {fileID: 1357260168}
   m_Layer: 0
   m_Name: Color
-  m_TagString: Untagged
+  m_TagString: ColorTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1095,7 +1096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   height: 1
   width: 2
-  tilePrefab: {fileID: 8371117404943862817, guid: cda24077997b8d143b1795de3bae175f, type: 3}
+  tilePrefab: {fileID: 1741271345957709015, guid: 3ba46b3a946621e499f2616a33e566d2, type: 3}
   colors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 1, g: 0.25, b: 0.25, a: 1}
@@ -1112,6 +1113,7 @@ MonoBehaviour:
   - {r: 0.25, g: 1, b: 1, a: 1}
   - {r: 0.5, g: 0.5, b: 0.5, a: 1}
   - {r: 0.25, g: 0.25, b: 0.25, a: 1}
+  colorTag: 
 --- !u!1 &1379395060
 GameObject:
   m_ObjectHideFlags: 0

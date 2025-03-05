@@ -1,12 +1,12 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
 namespace Mosaic{
     public class PopUpTile : MonoBehaviour{
-        [SerializeField] SpriteRenderer spriteRenderer;
+        [Space, SerializeField] private SpriteRenderer spriteRenderer;
         public SpriteRenderer SpriteRenderer => spriteRenderer;
 
-        IEnumerator Start(){            
+        private IEnumerator Start(){            
             for(float time = 0; time < 1; time += Time.deltaTime * 2){
                 transform.localScale = Vector3.one * time;
 
@@ -20,12 +20,12 @@ namespace Mosaic{
             clickAnimation = 1;
         }
 
-        const float animationSpeed = 2.5f;
-        float clickAnimation;
-        void Update(){
+        private const float animationSpeed = 3f;
+        private float clickAnimation;
+        private void Update(){
             clickAnimation = Mathf.MoveTowards(clickAnimation, 0, Time.deltaTime * animationSpeed);
 
-            transform.GetChild(0).localScale = Vector3.one * (1 - .15f * Mathf.Sin(Mathf.PI * clickAnimation));
+            transform.GetChild(0).localScale = Vector3.one * (1 - .075f * Mathf.Sin(Mathf.PI * clickAnimation));
 
             if(clickAnimation == 0) enabled = false;
         }

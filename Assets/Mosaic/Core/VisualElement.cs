@@ -15,17 +15,37 @@ namespace Mosaic{
         public void Show() => SetVisible(true);
         public void Hide() => SetVisible(false);
 
-        protected virtual void SetVisible(bool value) => visible = value;
+        protected virtual void SetVisible(bool value){
+            visible = value;
+
+            switch(visualAnimation){
+                case 1:
+                    enabled = true;
+                    break;
+                case 0:
+                    gameObject.SetActive(true);
+                    break;
+            }
+        }
         [Space] public bool visible;
 
         protected float visualAnimation;
 
-        const float animationSpeed = 2;
+        private const float animationSpeed = 2;
 
-        void Update(){
+        private void Update(){
             visualAnimation = Mathf.MoveTowards(visualAnimation, visible ? 1 : 0, Time.deltaTime * animationSpeed);
 
             UpdateVisual();
+
+            switch(visualAnimation){
+                case 1:
+                    enabled = false;
+                    break;
+                case 0:
+                    gameObject.SetActive(false);
+                    break;
+            }
         }
 
         protected abstract void UpdateVisual();

@@ -12,7 +12,7 @@ namespace Mosaic{
             StartCoroutine( Save() );
         }
 
-        IEnumerator Save(){
+        private IEnumerator Save(){
             yield return new WaitForEndOfFrame();
 
             var offset = Vector3.right / 2;

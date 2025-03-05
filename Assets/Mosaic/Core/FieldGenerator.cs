@@ -6,11 +6,11 @@ namespace Mosaic{
     public class FieldGenerator : MonoBehaviour{
         [Space, SerializeField] protected int height, width;
 
-        [Space, SerializeField] PopUpTile tilePrefab;
+        [Space, SerializeField] private PopUpTile tilePrefab;
 
         protected List<PopUpTile> tiles = new();
 
-        float CalculateOffset(int parameter) => parameter % 2 == 0 ? parameter / 2 - .5f : parameter / 2;
+        private float CalculateOffset(int parameter) => parameter % 2 == 0 ? parameter / 2 - .5f : parameter / 2;
 
         public virtual void Generate(){
             float gridOffsetX = CalculateOffset(width), gridOffsetY = CalculateOffset(height);
@@ -34,7 +34,7 @@ namespace Mosaic{
             StartCoroutine( DelayedActivation() );
         }
 
-        IEnumerator DelayedActivation(){
+        private IEnumerator DelayedActivation(){
             var delay = 1.5f / tiles.Count;
 
             foreach(var tile in tiles){
@@ -45,7 +45,7 @@ namespace Mosaic{
         }
 
         #if UNITY_EDITOR
-        void OnDrawGizmos(){
+        private void OnDrawGizmos(){
             Gizmos.DrawWireCube(
                 transform.position, new Vector2(height == 1 ? width : width + .5f, height * .75f)
             );
